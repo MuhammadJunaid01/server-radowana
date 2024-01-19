@@ -1,16 +1,15 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ubiquitous-sunflower-afad6f.netlify.app",
-    ],
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
 );
+
 app.use(express.json());
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
