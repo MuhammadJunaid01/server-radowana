@@ -1,12 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const port = process.env.PORT || 5000;
-
-// middleware
 app.use(
   cors({
     origin: [
@@ -18,6 +12,12 @@ app.use(
   })
 );
 app.use(express.json());
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const port = process.env.PORT || 5000;
+
+// middleware
 
 // const verifyJWT = (req, res, next) => {
 //   const authorization = req.headers.authorization;
